@@ -53,6 +53,11 @@
     margin-bottom: 1rem;
     font-style: normal;
   }
+  .twe-status-pill--active {
+    background: #9AE095;
+    border-color: #9AE095;
+    color: #fff;
+  }
   .twe-h1 {
     font-family: 'proxima-nova', sans-serif;
     font-size: clamp(2rem, 5vw, 3rem);
