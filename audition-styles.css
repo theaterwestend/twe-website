@@ -1,1 +1,374 @@
+#twe-audition-page * { box-sizing: border-box; }
+  #twe-audition-page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    background: #fff;
+    color: #1a1a1a;
+  }
 
+  #twe-audition-page em,
+  #twe-audition-page i {
+    font-style: normal !important;
+    font-family: inherit !important;
+  }
+
+  /* ── Loading / Error ── */
+  #twe-loading {
+    padding: 3rem 0;
+    text-align: center;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+  }
+  #twe-error {
+    padding: 1.5rem;
+    background: #fff3f3;
+    border-radius: 6px;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 14px;
+    color: #c00;
+    display: none;
+  }
+
+  /* ── Show Header ── */
+  .twe-show-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .twe-status-pill {
+    display: inline-block;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+    color: #888;
+    margin-bottom: 1rem;
+    font-style: normal;
+  }
+  .twe-h1 {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.4rem;
+    color: #111;
+    font-style: normal;
+  }
+  .twe-subtitle {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 0;
+    font-style: normal;
+  }
+
+  /* ── Layout Grid ── */
+  .twe-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 680px) {
+    .twe-grid { grid-template-columns: 1fr; }
+    .twe-sidebar-inner.is-stuck {
+      position: static !important;
+      width: auto !important;
+      top: auto !important;
+    }
+  }
+
+  /* ── Section Headings ── */
+  .twe-section { margin-bottom: 2.5rem; }
+  .twe-section-heading {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #111;
+    margin: 0 0 0.85rem;
+    font-style: normal;
+  }
+
+  /* ── Body Text ── */
+  .twe-body {
+    font-family: 'eighties-cond', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #222;
+    font-style: normal;
+  }
+  .twe-body p {
+    margin: 0 0 1rem;
+    font-size: 17px;
+    line-height: 1.7;
+    font-style: normal;
+  }
+  .twe-body strong {
+    font-family: 'eighties-cond', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .twe-body em { font-style: normal; }
+  .twe-body h3 {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #999;
+    margin: 2rem 0 0.75rem;
+    font-style: normal;
+  }
+  .twe-body ul {
+    margin: 0 0 1rem;
+    padding-left: 1.4rem;
+    font-style: normal;
+  }
+  .twe-body ul li {
+    margin-bottom: 0.4rem;
+    font-size: 17px;
+    line-height: 1.7;
+    font-style: normal;
+  }
+
+  /* ── Divider ── */
+  .twe-divider { border: none; border-top: 1px solid #ebebeb; margin: 2rem 0; }
+
+  /* ── Sidebar ── */
+  .twe-sidebar {
+    background: #f7f7f7;
+    border-radius: 8px;
+    border: 1px solid #e4e4e4;
+    padding: 1.25rem;
+    font-style: normal;
+  }
+  .twe-sidebar-inner.is-stuck {
+    position: fixed;
+    width: 260px;
+    z-index: 100;
+  }
+  .twe-sidebar-heading {
+    font-family: 'proxima-nova', sans-serif !important;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 0.85rem;
+    font-style: normal;
+    display: block;
+  }
+
+  /* Standard sidebar row */
+  .twe-srow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid #e4e4e4;
+    gap: 8px;
+    font-style: normal;
+  }
+  .twe-srow:last-of-type { border-bottom: none; }
+  .twe-srow .lbl { color: #999; flex-shrink: 0; font-weight: 400; }
+  .twe-srow .val { color: #111; font-weight: 600; text-align: right; }
+
+  /* Calendar link row */
+  .twe-srow .val a {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-style: normal;
+  }
+  .twe-srow .val a:hover { color: #444; }
+
+  /* Rehearsals row — stacked */
+  .twe-srow-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 0;
+    border-bottom: 1px solid #e4e4e4;
+    font-style: normal;
+  }
+  .twe-srow-block .lbl {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #999;
+  }
+  .twe-srow-block .val {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #111;
+    text-align: right;
+    font-style: normal;
+  }
+
+  /* ── CTA Button — active ── */
+  .twe-btn {
+    display: block;
+    width: 100%;
+    padding: 13px 1.25rem;
+    background: #111;
+    color: #fff !important;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-style: normal;
+  }
+  .twe-btn:hover { background: #333; }
+
+  /* ── CTA Button — disabled (draft) ── */
+  .twe-btn-disabled {
+    display: block;
+    width: 100%;
+    padding: 13px 1.25rem;
+    background: #e8e8e8;
+    color: #aaa !important;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed;
+    text-decoration: none;
+    margin-top: 1rem;
+    font-style: normal;
+    pointer-events: none;
+  }
+
+  /* ── Character Cards ── */
+  .twe-char-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+  @media (max-width: 500px) { .twe-char-grid { grid-template-columns: 1fr; } }
+  .twe-char-card {
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+  }
+  .twe-char-name {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 2px;
+    color: #111;
+    font-style: normal;
+  }
+  .twe-char-meta {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 0 0 7px;
+    font-style: normal;
+  }
+  .twe-char-desc {
+    font-family: 'eighties-cond', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #444;
+    margin: 0 0 6px;
+    font-style: normal;
+  }
+  .twe-char-songs {
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #aaa;
+    margin: 0;
+    font-style: normal;
+    line-height: 1;
+  }
+
+  /* ── Advisory Block ── */
+  .twe-advisory {
+    border-left: 3px solid #ddd;
+    padding-left: 1.2rem;
+    margin: 1rem 0;
+  }
+  .twe-advisory p {
+    font-family: 'eighties-cond', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0;
+    font-style: normal;
+  }
+
+  /* ── Requirements List ── */
+  .twe-req-list { list-style: none; padding: 0; margin: 0; }
+  .twe-req-list li {
+    font-family: 'eighties-cond', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    padding: 9px 0;
+    border-bottom: 1px solid #ebebeb;
+    color: #222;
+    font-style: normal;
+  }
+  .twe-req-list li:last-child { border-bottom: none; }
+  .twe-req-list li strong {
+    font-family: 'proxima-nova', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ── Live Badge ── */
+  .twe-data-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'proxima-nova', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ccc;
+    border: 1px solid #eee;
+    border-radius: 100px;
+    padding: 4px 12px;
+    margin-top: 1rem;
+    font-style: normal;
+  }
