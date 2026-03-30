@@ -227,50 +227,6 @@
       '</div>';
   }
 
-  function initStickySidebar() {
-    var sidebar = document.getElementById('twe-sidebar-inner');
-    var col     = document.getElementById('twe-sidebar-col');
-    var grid    = document.getElementById('twe-grid');
-    if (!sidebar || !col || !grid) return;
-    if (window.innerWidth <= 680) return;
-
-    var OFFSET = 24;
-
-    function onScroll() {
-      if (window.innerWidth <= 680) {
-        sidebar.classList.remove('is-stuck');
-        sidebar.style.top = '';
-        return;
-      }
-
-      var sidebarHeight = sidebar.offsetHeight;
-      var colTop        = col.getBoundingClientRect().top + window.pageYOffset;
-      var gridBottom    = grid.getBoundingClientRect().bottom + window.pageYOffset;
-      var scrollY       = window.pageYOffset;
-
-      if (scrollY >= colTop - OFFSET) {
-        sidebar.classList.add('is-stuck');
-        var desiredTop = OFFSET;
-        var absoluteBottom = scrollY + desiredTop + sidebarHeight;
-        if (absoluteBottom > gridBottom) {
-          desiredTop = gridBottom - scrollY - sidebarHeight;
-        }
-        sidebar.style.top = Math.max(desiredTop, 0) + 'px';
-      } else {
-        sidebar.classList.remove('is-stuck');
-        sidebar.style.top = '';
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function() {
-      sidebar.classList.remove('is-stuck');
-      sidebar.style.top = '';
-      onScroll();
-    });
-
-    onScroll();
-  }
 
   function airtableFetch(tableId, recordId) {
     return fetch(
@@ -294,7 +250,6 @@
     var content = document.getElementById('twe-content');
     content.innerHTML = buildPage(auditionFields, productionFields);
     content.style.display = 'block';
-    initStickySidebar();
   })
   .catch(function(err) {
     document.getElementById('twe-loading').style.display = 'none';
