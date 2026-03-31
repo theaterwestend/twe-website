@@ -144,7 +144,6 @@
       '<div class="twe-srow"><span class="lbl">Performances</span><span class="val">' + showDates + '</span></div>' +
       '<div class="twe-srow-block"><span class="lbl">Rehearsals</span><span class="val">' + rehearsals + '</span></div>' +
       (subsDue ? '<div class="twe-srow"><span class="lbl">Submissions Due</span><span class="val">' + subsDue + '</span></div>' : '') +
-      '<div class="twe-srow"><span class="lbl">Dance eval?</span><span class="val">' + danceReq + '</span></div>' +
       calRow;
 
     return '' +
